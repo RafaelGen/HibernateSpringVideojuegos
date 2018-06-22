@@ -5,27 +5,27 @@
  */
 package com.hibernateboot.videojuegos.services;
 
-import java.util.List;
-
 import com.hibernateboot.videojuegos.model.Empresa;
 import com.hibernateboot.videojuegos.model.Videojuegos;
+import com.hibernateboot.videojuegos.repository.IEmpresaRepository;
+import com.hibernateboot.videojuegos.repository.IVideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hibernateboot.videojuegos.repository.IVideoRepository;
+
+import java.util.List;
 
 /**
  *
  * @author rafaelm
  */
 @Service
-public class VideojuegosDao {
+public class EmpresaDao {
     
     @Autowired
-    IVideoRepository iVideoRepository;
+    IEmpresaRepository iEmpresaRepository;
 
-    public List<Videojuegos> findAll(Integer id_emp) {
-       
-        return iVideoRepository.findByEmpresa_IdEmpresa(id_emp);
+    public List<Empresa> findAll() {
+        return iEmpresaRepository.findAll();
     }
     /*
     public Videojuegos save(Videojuegos video){

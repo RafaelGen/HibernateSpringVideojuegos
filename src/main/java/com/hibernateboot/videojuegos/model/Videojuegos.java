@@ -5,11 +5,7 @@
  */
 package com.hibernateboot.videojuegos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -19,10 +15,13 @@ import javax.persistence.Table;
 @Table(name="juegos")
 public class Videojuegos {
     
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     private int idVideojuego;
     private String nombre;
     private String plataforma;
+
+    @ManyToOne
+    private Empresa empresa;
     
     public Videojuegos(){}
 
@@ -49,6 +48,13 @@ public class Videojuegos {
     public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
     }
-    
-    
+
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 }

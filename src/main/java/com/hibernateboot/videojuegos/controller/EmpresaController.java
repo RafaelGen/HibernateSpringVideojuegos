@@ -5,27 +5,28 @@
  */
 package com.hibernateboot.videojuegos.controller;
 
-import java.util.List;
+import com.hibernateboot.videojuegos.model.Empresa;
 import com.hibernateboot.videojuegos.model.Videojuegos;
+import com.hibernateboot.videojuegos.services.EmpresaDao;
+import com.hibernateboot.videojuegos.services.VideojuegosDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.hibernateboot.videojuegos.services.VideojuegosDao;
-import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 /**
  *
  * @author rafaelm
  */
 @RestController
-@RequestMapping("/video/empresa")
-public class VideojuegosController {
+@RequestMapping("/video")
+public class EmpresaController {
     @Autowired
-    VideojuegosDao videojuegosDao;
+    EmpresaDao empresaDao;
     
-    @GetMapping("/{id_emp}/juegos")
-    public List<Videojuegos> getAllVideo(@PathVariable Integer id_emp)
-    {
-        return videojuegosDao.findAll(id_emp);
+    @GetMapping("/empresa")
+    public List<Empresa> getAllEmpresas(){
+        return empresaDao.findAll();
     }
     
     /*@PostMapping("/video")
