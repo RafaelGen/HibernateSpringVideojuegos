@@ -26,25 +26,23 @@ public class EmpresaController {
     
     @GetMapping("/empresa")
     public List<Empresa> getAllEmpresas(){
+
         return empresaDao.findAll();
     }
-    
-    /*@PostMapping("/video")
-    public Videojuegos saveVideo(@RequestBody Videojuegos video){
-        return videojuegosDao.save(video);
+
+    @PostMapping("/empresa")
+    public void saveEmpresa(@RequestBody Empresa empresa){
+        empresaDao.saveEmpresa(empresa);
     }
 
-    @PutMapping("/video/{id}")
-    public Videojuegos updateVideo(@RequestBody Videojuegos videojuego,
-                                   @PathVariable int id){
-        return videojuegosDao.updateVideo(id,videojuego);
-    }
+    @PutMapping("/empresa/{id_emp}")
+    public void putEmpresa(@PathVariable Integer id_emp,
+                           @RequestBody Empresa empresa){
+        empresaDao.putEmpresa(id_emp, empresa);
+        }
 
-    @RequestMapping(value = "/video/{id}",method = RequestMethod.DELETE)
-    public void deleteVideo(@PathVariable int id){
-        videojuegosDao.deleteVideo(id);
-    }
-*/
-
-
+        @DeleteMapping("/empresa/{id_emp}")
+    public void deleteEmpresa(@PathVariable Integer id_emp){
+        empresaDao.deleteEmpresa(id_emp);
+        }
 }

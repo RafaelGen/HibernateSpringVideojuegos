@@ -27,6 +27,10 @@ public class VideojuegosDao {
        
         return iVideoRepository.findByEmpresa_IdEmpresa(id_emp);
     }
+
+    public void saveVideojuego(Videojuegos videojuegos) {
+        iVideoRepository.save(videojuegos);
+    }
     /*
     public Videojuegos save(Videojuegos video){
         return iVideoRepository.save(video);

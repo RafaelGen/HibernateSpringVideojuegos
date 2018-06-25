@@ -5,10 +5,7 @@
  */
 package com.hibernateboot.videojuegos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -18,11 +15,17 @@ import javax.persistence.Table;
 @Table(name="empresa")
 public class Empresa {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmpresa;
     private String nombre_empresa;
 
     public Empresa(){}
+
+    public Empresa(Integer idEmpresa, String nombre_empresa){
+        this.idEmpresa = idEmpresa;
+        this.nombre_empresa = nombre_empresa;
+    }
 
     public int getIdEmpresa() {
         return idEmpresa;

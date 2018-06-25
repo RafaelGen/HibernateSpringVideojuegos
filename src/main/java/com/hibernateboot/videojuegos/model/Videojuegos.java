@@ -15,7 +15,8 @@ import javax.persistence.*;
 @Table(name="juegos")
 public class Videojuegos {
     
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVideojuego;
     private String nombre;
     private String plataforma;
@@ -24,6 +25,11 @@ public class Videojuegos {
     private Empresa empresa;
     
     public Videojuegos(){}
+
+    public Videojuegos(String nombre, String plataforma) {
+        this.nombre = nombre;
+        this.plataforma = plataforma;
+    }
 
     public int getIdVideojuego() {
         return idVideojuego;

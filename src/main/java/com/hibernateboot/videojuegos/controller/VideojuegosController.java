@@ -6,6 +6,8 @@
 package com.hibernateboot.videojuegos.controller;
 
 import java.util.List;
+
+import com.hibernateboot.videojuegos.model.Empresa;
 import com.hibernateboot.videojuegos.model.Videojuegos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,23 +29,12 @@ public class VideojuegosController {
     {
         return videojuegosDao.findAll(id_emp);
     }
-    
-    /*@PostMapping("/video")
-    public Videojuegos saveVideo(@RequestBody Videojuegos video){
-        return videojuegosDao.save(video);
-    }
 
-    @PutMapping("/video/{id}")
-    public Videojuegos updateVideo(@RequestBody Videojuegos videojuego,
-                                   @PathVariable int id){
-        return videojuegosDao.updateVideo(id,videojuego);
+    @PostMapping("/{id_emp}/juegos")
+    public void saveVideojuego(@PathVariable Integer id_emp,
+                               @RequestBody Videojuegos videojuegos){
+        videojuegos.setEmpresa(new Empresa(id_emp,""));
+        videojuegosDao.saveVideojuego(videojuegos);
     }
-
-    @RequestMapping(value = "/video/{id}",method = RequestMethod.DELETE)
-    public void deleteVideo(@PathVariable int id){
-        videojuegosDao.deleteVideo(id);
-    }
-*/
-
 
 }

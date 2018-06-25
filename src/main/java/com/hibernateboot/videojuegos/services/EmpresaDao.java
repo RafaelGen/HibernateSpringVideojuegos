@@ -27,17 +27,16 @@ public class EmpresaDao {
     public List<Empresa> findAll() {
         return iEmpresaRepository.findAll();
     }
-    /*
-    public Videojuegos save(Videojuegos video){
-        return iVideoRepository.save(video);
-    }
-    
-    public Videojuegos updateVideo(int id,Videojuegos video){
-        return iVideoRepository.save(video);
+
+    public void saveEmpresa(Empresa empresa) {
+        iEmpresaRepository.save(empresa);
     }
 
+    public void putEmpresa(Integer id_emp, Empresa empresa) {
+        iEmpresaRepository.save(empresa);
+    }
 
-    public void deleteVideo(int id) {
-        iVideoRepository.deleteById(id);
-    }*/
+    public void deleteEmpresa(Integer id_emp) {
+        iEmpresaRepository.deleteById(id_emp);
+    }
 }
